@@ -36,11 +36,11 @@ body {
     transform: scale(0.9);
     opacity: 0;
     pointer-events: none;
-    transform-origin: bottom right; /* <-- ĐÃ SỬA LỖI Ở ĐÂY */
+    transform-origin: bottom right;
     /* --- KẾT THÚC BỔ SUNG --- */
     
-    /* --- PHẦN KÉO DÃN (ĐÃ CÓ SẴN) --- */
-    resize: none; 
+    /* --- PHẦN KÉO DÃN (ĐÃ TẮT) --- */
+    resize: none; /* <-- ĐÃ TẮT TÍNH NĂNG KÉO DÃN */
     overflow: auto; 
     display: flex; 
     flex-direction: column; 
@@ -110,7 +110,7 @@ body {
     border-radius: 10px;
     max-width: 75%;
     font-size: 0.95rem;
-    background: #f2f2f2;
+    background: #f2f2ff;
     color: #333;
     text-align: left;
 }
@@ -195,7 +195,7 @@ body {
         width: 100%;
         height: 100%;
         border-radius: 0;
-        /* Trên di động thì không cho kéo dãn */
+        /* Trên di động thì không cho kéo dãn (đã có sẵn) */
         resize: none; 
         min-width: 0;
         min-height: 0;
