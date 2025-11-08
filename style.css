@@ -21,7 +21,6 @@ body {
 }
 
 /* Ẩn Chatbot ban đầu */
-/* Ẩn Chatbot ban đầu */
 .chatbot {
     position: fixed;
     right: 35px;
@@ -37,6 +36,7 @@ body {
     transform: scale(0.9);
     opacity: 0;
     pointer-events: none;
+    transform-origin: bottom right; /* <-- ĐÃ SỬA LỖI Ở ĐÂY */
     /* --- KẾT THÚC BỔ SUNG --- */
     
     /* --- PHẦN KÉO DÃN (ĐÃ CÓ SẴN) --- */
