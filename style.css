@@ -40,7 +40,7 @@ body {
     /* --- KẾT THÚC BỔ SUNG --- */
     
     /* --- PHẦN KÉO DÃN (ĐÃ CÓ SẴN) --- */
-    resize: both; 
+    resize: none; 
     overflow: auto; 
     display: flex; 
     flex-direction: column; 
