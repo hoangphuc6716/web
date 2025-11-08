@@ -26,26 +26,26 @@ body {
     right: 35px;
     bottom: 90px;
     width: 420px;
-    height: 500px; /* <-- ĐÃ SỬA: Cố định chiều cao */
+    height: 550px; /* <-- SỬA Ở ĐÂY: Cố định chiều cao (bạn có thể đổi số khác) */
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 
                 0 32px 64px -48px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
     
-    /* --- PHẦN BỔ SUNG ĐỂ SỬA LỖI ẨN/HIỆN --- */
+    /* --- SỬA LỖI 1: Fix lỗi 'bay' lên khi ẩn/hiện --- */
     transform: scale(0.9);
     opacity: 0;
     pointer-events: none;
-    transform-origin: bottom right;
-    /* --- KẾT THÚC BỔ SUNG --- */
+    transform-origin: bottom right; /* <-- THÊM DÒNG NÀY */
     
-    /* --- PHẦN KÉO DÃN (ĐÃ TẮT) --- */
-    resize: none; 
-    overflow: hidden; /* <-- ĐÃ SỬA: Ẩn tràn */
+    /* --- SỬA LỖI 2 & 3: Fix lỗi bị kéo dài lên --- */
+    resize: none; /* <-- SỬA Ở ĐÂY: Tắt kéo dãn */
+    overflow: hidden; /* <-- SỬA Ở ĐÂY: Ẩn cuộn của cả khung chat */
+    
     display: flex; 
     flex-direction: column; 
-    /* min-width và min-height đã bị xóa */
+    /* Xóa min-width và min-height đi */
 }
 /* Hiển thị Chatbot khi có class 'show-chatbot' */
 .show-chatbot .chatbot {
