@@ -1,0 +1,234 @@
+/* Thiết lập cơ bản */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    /* Nâng cấp nền với dải màu (gradient) */
+    background: linear-gradient(135deg, #e0c3fc 0%, #f0f2f5 100%);
+    
+    /* Căn giữa nội dung mới */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Đảm bảo căn giữa toàn màn hình */
+    text-align: center;
+    color: #333;
+    overflow: hidden; /* Tránh cuộn trang không cần thiết */
+}
+
+/* Ẩn Chatbot ban đầu */
+/* Ẩn Chatbot ban đầu */
+.chatbot {
+    position: fixed;
+    right: 35px;
+    bottom: 90px;
+    width: 420px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 
+                0 32px 64px -48px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    
+    /* --- PHẦN BỔ SUNG ĐỂ SỬA LỖI ẨN/HIỆN --- */
+    transform: scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    /* --- KẾT THÚC BỔ SUNG --- */
+    
+    /* --- PHẦN KÉO DÃN (ĐÃ CÓ SẴN) --- */
+    resize: both; 
+    overflow: auto; 
+    display: flex; 
+    flex-direction: column; 
+    min-width: 350px; 
+    min-height: 400px;
+}
+/* Hiển thị Chatbot khi có class 'show-chatbot' */
+.show-chatbot .chatbot {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Header */
+.chatbot header {
+    padding: 16px 0;
+    position: relative;
+    background: #724ae8;
+    border-radius: 15px 15px 0 0;
+}
+.chatbot header h2 {
+    color: #fff;
+    font-size: 1.4rem;
+}
+.chatbot header .close-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Khung tin nhắn */
+.chatbot .chatbox {
+    overflow-y: auto;
+    /* --- THAY ĐỔI ĐỂ CO DÃN --- */
+    flex-grow: 1; /* Cho phép nó tự động co dãn để lấp đầy không gian */
+    /* Xóa bỏ 'height: 510px;' */
+    /* --- KẾT THÚC THAY ĐỔI --- */
+    padding: 15px 20px 10px;
+}
+
+/* Định dạng tin nhắn */
+.chatbox .chat {
+    display: flex;
+    list-style: none;
+    margin-bottom: 10px;
+}
+.chatbox .incoming span {
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    background: #724ae8;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 4px;
+    margin: 0 10px 7px 0;
+}
+.chatbox .outgoing {
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+.chatbox .chat p {
+    white-space: pre-wrap;
+    padding: 12px 16px;
+    border-radius: 10px;
+    max-width: 75%;
+    font-size: 0.95rem;
+    background: #f2f2f2;
+    color: #333;
+    text-align: left;
+}
+.chatbox .outgoing p {
+    color: #fff;
+    background: #724ae8;
+}
+
+/* Định dạng lỗi */
+.chatbox .chat p.error {
+    color: #721c24;
+    background: #f8d7da;
+}
+
+/* Khung nhập liệu */
+.chatbot .chat-input {
+    /* --- THAY ĐỔI ĐỂ CO DÃN --- */
+    /* Xóa 'position: absolute;' */
+    /* Xóa 'bottom: 0;' */
+    width: 100%;
+    /* --- KẾT THÚC THAY ĐỔI --- */
+    display: flex;
+    gap: 5px;
+    padding: 12px 20px;
+    border-top: 1px solid #ccc;
+    background: #fff;
+}
+.chat-input textarea {
+    height: 55px;
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    max-height: 180px;
+    padding: 18px 15px;
+    font-size: 0.95rem;
+}
+.chat-input span {
+    align-self: flex-end;
+    color: #724ae8;
+    font-size: 1.5rem;
+    cursor: pointer;
+    height: 55px;
+    line-height: 55px;
+    user-select: none;
+}
+
+/* Nút Bật/Tắt Chatbot */
+.chatbot-toggler {
+    position: fixed;
+    right: 35px;
+    bottom: 30px;
+    height: 50px;
+    width: 50px;
+    color: #fff;
+    background: #724ae8;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.chatbot-toggler span {
+    position: absolute;
+}
+.show-chatbot .chatbot-toggler span:first-child,
+.chatbot-toggler span:last-child {
+    opacity: 0;
+}
+.show-chatbot .chatbot-toggler span:last-child {
+    opacity: 1;
+}
+
+/* Media Query cho thiết bị di động */
+@media(max-width: 490px) {
+    .chatbot {
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        /* Trên di động thì không cho kéo dãn */
+        resize: none; 
+        min-width: 0;
+        min-height: 0;
+    }
+    .chatbot .chatbox {
+        height: 90%;
+        padding: 25px 15px 100px;
+    }
+    .chatbot .chat-input {
+        padding: 15px 15px;
+    }
+    .chatbot header .close-btn {
+        display: none;
+    }
+} /* <-- LỖI CỦA BẠN LÀ ĐỂ DẤU '}' NÀY Ở SAI VỊ TRÍ (SAU PHẦN .page-content) */
+
+/* --- Định dạng nội dung trang --- */
+/* (Các style này phải nằm ngoài @media) */
+.page-content {
+    max-width: 600px;
+    padding: 20px;
+}
+
+.page-content h1 {
+    font-size: 2.8rem; /* Làm tiêu đề lớn hơn */
+    font-weight: 600;
+    color: #4b2c8a; /* Màu tím đậm cho tiêu đề */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.page-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
